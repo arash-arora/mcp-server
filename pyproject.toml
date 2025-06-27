@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "home-mcp"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mcp = "^1.9.4"
+langgraph = "^0.4.8"
+langchain-groq = "^0.3.2"
+langchain-mcp-adapters = "^0.1.7"
+markdownify = "^1.1.0"
+bs4 = "^0.0.2"
+requests = "^2.32.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

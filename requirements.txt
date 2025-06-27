@@ -1,0 +1,7 @@
+mcp
+langgraph
+langchain-groq
+langchain-mcp-adapters
+markdownify
+bs4
+requests
