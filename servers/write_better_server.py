@@ -7,13 +7,12 @@ mcp = FastMCP("Grammar")
 @mcp.tool()
 async def write_better(content: str) -> str:
     """
-    Provided the content, return the better version of it
+    Provided the sentence, make the sentence grammatical correct
     """
     model = ChatGroq(model="qwen-qwq-32b")
     response = model.ainvoke(
         {
             "messages": [
-                {"role": "system", "content": "Provided the sentence, write it better"},
                 {"role": "user", "content": content},
             ]
         }

@@ -12,14 +12,14 @@ load_dotenv()
 async def main():
     client = MultiServerMCPClient(
         {
-            "crawler": {
-                "url": "http://localhost:8000/mcp",
-                "transport": "streamable_http",
-            },
             "write_better": {
                 "command": "python",
                 "args": ["servers/write_better_server.py"],
                 "transport": "stdio",
+            },
+            "servers": {
+                "url": "http://localhost:8000/mcp",
+                "transport": "streamable_http",
             },
         }
     )
@@ -52,6 +52,18 @@ async def main():
         }
     )
     print("Write it better response:", write_better_response["messages"][-1].content)
+
+    weather_response = await agent.ainvoke(
+        {
+            "messages": [
+                {
+                    "role": "user",
+                    "content": "Tell me about the weather of Faridabad",
+                }
+            ]
+        }
+    )
+    print("Weather response:", weather_response["messages"][-1].content)
 
 
 asyncio.run(main())
